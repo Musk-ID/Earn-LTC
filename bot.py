@@ -67,6 +67,7 @@ class earn:
                 else:
                         self.scret = req.post("http://earnlitecoinapp.com/earnlitecoin/litecoin/api/scratch_count.php",headers={"Content-Type": "application/json","Content-Length": "76","Host": "earnlitecoinapp.com","Connection": "Keep-Alive","Accept-Encoding": "gzip","User-Agent": "okhttp/4.3.1"},data=json.dumps({"user_id":userd,"email_id":gmail,"points":"87"}))
                         if json.loads(self.scret.text)["message"] in "Success":
+                                self.ambil = json.loads(self.scret.text)
                                 print(f'  [{datetime.now().strftime("%H:%M:%S")}] {self.ambil["message"]} ~> get reward scratch | {self.ambil["points"]} points')
                                 print("  •> count_left: {} ".format(self.ambil["count_left"]))
                         else:
